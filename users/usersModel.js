@@ -15,7 +15,8 @@ function findUsers() {
 
 function findBy(filter){
      return db('users')
-          .join('departments', 'users.department_name', 'departments.name')
+          .join('departments', 'users.department_id', 'departments.id')
+          .select('users.id', 'users.username', 'users.password', 'departments.name as department_name')
           .where(filter)
           .orderBy('users.id')
 }
