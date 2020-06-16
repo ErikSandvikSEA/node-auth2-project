@@ -10,7 +10,7 @@ exports.up = function(knex) {
           tbl.string('username', 128).notNullable().unique().index()
           tbl.string('password', 256).notNullable()
           tbl.integer('department_id').unsigned().references('departments.id').onDelete("RESTRICT").onUpdate("CASCADE");
-          tbl.string('department_name').references('departments.id').onDelete('RESTRICT').onUpdate('CASCADE')
+          tbl.string('department_name').references('departments.name').onDelete('RESTRICT').onUpdate('CASCADE')
      })
 };
 
